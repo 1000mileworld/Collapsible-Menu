@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<button class="expandible" type="button">>></button>
+<div class="item">
+<ol>
+<li><a href="#dom">Understanding the Document Object Model (DOM)</a></li>
+<li><a href="#select">DOM Element Selection</a></li>
+<li><a href="#modify">Modifying Attributes, Classes, and HTML</a></li>
+<li><a href="#styling">Element Styling</a></li>
+<li><a href="#node">DOM Node Modification</a></li>
+<li><a href="#summary">Summary</a></li>
+</ol>
+</div>
+
+
+<script type="text/javascript">
+	
+let ex = document.querySelector('.expandible');
+let it = document.querySelector('.item');
+const listClass = document.querySelector('li');
+
+const array = [...document.querySelectorAll('li')];
+let sum = 0;
+array.forEach(item => sum += item.scrollHeight);
+
+//const extraSpace = parseFloat(getComputedStyle(listClass).getPropertyValue('padding'))*2 + parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*array.length+1;
+const extraSpace = parseFloat(getComputedStyle(it.firstElementChild).getPropertyValue('margin-block-start')) +
+parseFloat(getComputedStyle(it.firstElementChild).getPropertyValue('margin-block-end')) +
+parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*array.length;
+
+
+//console.log(getComputedStyle(document.documentElement).getPropertyValue('--menuHeight'))
+
+document.documentElement.style.setProperty('--menuHeight',sum+extraSpace+'px')
+
+console.log(getComputedStyle(document.documentElement).getPropertyValue('--menuHeight'))
+//let s = getComputedStyle(document.documentElement).getPropertyValue('--menuHeight');
+//console.log(parseFloat(s))
+
+
+
+function menu(){
+  it.classList.toggle("active");
+}
+
+ex.addEventListener("click", menu);
+
+</script>
+
+</body>
+</html>

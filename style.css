@@ -1,0 +1,44 @@
+:root{
+  --bottomAlign: 5%;
+  --menuHeight: 333px;
+}
+
+.expandible{
+  position: fixed;
+  bottom: var(--bottomAlign); 
+  
+}
+
+.item{
+  position: absolute;
+  left: 40px;
+  bottom: var(--bottomAlign);
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  width: 200px;
+  height: 0px;
+  transition: height 1s;
+}
+
+.active{
+  display: list-item;
+  height: var(--menuHeight);
+}
+
+li{
+		font-size: 16px;
+		border: solid 1px;
+		list-style-position: inside;
+		padding: 10px;
+		margin: 1px auto auto -50px;
+		background-color: rgba(0,165,8,0.75);
+		color: white;
+		line-height: 20px;
+		border: solid 1px yellow;
+	}
+	
+li:hover{
+		background-color: #3FC2BC;
+		font-size: 18px;
+	}
