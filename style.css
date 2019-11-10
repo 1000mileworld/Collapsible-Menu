@@ -35,12 +35,6 @@
   transition: height 1s;
 }
 
-.subMenu{
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-
-}
 .popup{
   display: list-item;
   height: var(--menuHeight);
@@ -56,6 +50,7 @@
 	line-height: 20px;
 	border: solid 1px yellow;
 	}
+
 .menu a{
 	text-decoration: none;
 	color: white;
@@ -65,3 +60,18 @@
 	background-color: #3FC2BC;
 }
 
+.subMenu{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+
+}
+
+.subMenu > li{
+	padding: 5px;
+	margin-left: -30px;
+}
+
+.subMenu > li:hover{
+	background-color: #174CE7;
+}

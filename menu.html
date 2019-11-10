@@ -17,7 +17,13 @@
 		<li><a href="#">sub item 2</a></li>
 	</ul>
 </li>
-<li><a href="#modify">Modifying Attributes, Classes, and HTML</a></li>
+<li>
+	<a href="#modify">Modifying Attributes, Classes, and HTML</a>
+	<ul class="subMenu">
+		<li><a href="#">sub item 1</a></li>
+		<li><a href="#">sub item 2</a></li>
+	</ul>
+</li>
 <li><a href="#styling">Element Styling</a></li>
 <li><a href="#node">DOM Node Modification</a></li>
 <li><a href="#summary">Summary</a></li>
@@ -27,8 +33,8 @@
 
 <script type="text/javascript">
 	
-let ex = document.querySelector('.expandible');
-let menu = document.querySelector('.menu');
+const ex = document.querySelector('.expandible');
+const menu = document.querySelector('.menu');
 const listClass = document.querySelector('.menu > li');
 
 const listArray = [...document.querySelectorAll('.menu > li')];
@@ -48,7 +54,7 @@ ex.addEventListener("click", controlMenu);
 
 
 
-let subMenu = document.getElementsByClassName("subMenu");
+const subMenu = document.getElementsByClassName("subMenu");
 
 for (let i = 0; i < subMenu.length; i++) {
   	subMenu[i].parentElement.addEventListener("click", function() {
