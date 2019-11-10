@@ -6,7 +6,23 @@
 .expandible{
   position: fixed;
   bottom: var(--bottomAlign); 
+  padding: 0.46em 1.6em;
+  border: 0.1em solid #000000;
+  margin: 0 0.2em 0.2em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 500;
+  color: #000000;
+  background: linear-gradient(45deg, hsl(0, 0%, 100%), hsl(0, 0%, 80%));
+  text-align: center;
+  transition: all 0.15s;
   z-index: 1;
+}
+
+.expandible:hover{
+  background: linear-gradient(45deg, hsl(50, 50%, 90%), hsl(50, 50%, 60%));
+  border: 0.1em solid #E9990D;
 }
 
 .menu{
@@ -40,6 +56,7 @@
 	}
 .menu a{
 	text-decoration: none;
+	color: white;
 }
 
 li:hover{
