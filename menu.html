@@ -38,23 +38,27 @@ listArray.forEach(item => sum += item.scrollHeight);
 const extraSpace = parseFloat(getComputedStyle(ex).getPropertyValue('height')) +
 parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*listArray.length;
 
-//console.log(getComputedStyle(document.documentElement).getPropertyValue('--menuHeight'))
-
 document.documentElement.style.setProperty('--menuHeight',sum+extraSpace+'px');
 
-//console.log(getComputedStyle(document.documentElement).getPropertyValue('--menuHeight'))
-//let s = getComputedStyle(document.documentElement).getPropertyValue('--menuHeight');
-//console.log(parseFloat(s))
-
-
-
 function controlMenu(){
-  menu.classList.toggle("active");
+  menu.classList.toggle("popup");
 }
 
 ex.addEventListener("click", controlMenu);
 
 
+
+let subMenu = document.getElementsByClassName("subMenu");
+
+for (let i = 0; i < subMenu.length; i++) {
+  	subMenu[i].parentElement.addEventListener("click", function() {
+		if (subMenu[i].style.maxHeight){
+		  subMenu[i].style.maxHeight = null;
+		} else {
+		  subMenu[i].style.maxHeight = subMenu[i].scrollHeight + "px";
+		}   
+  });
+}
 
 </script>
 

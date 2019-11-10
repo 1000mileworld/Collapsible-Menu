@@ -1,11 +1,10 @@
 :root{
-  --bottomAlign: 20%;
   --menuHeight: 333px;
 }
 
 .expandible{
   position: fixed;
-  bottom: var(--bottomAlign); 
+  bottom: 20%;
   padding: 0.46em 1.6em;
   border: 0.1em solid #000000;
   margin: 0 0.2em 0.2em 0;
@@ -26,8 +25,9 @@
 }
 
 .menu{
-  position: absolute;
-  bottom: var(--bottomAlign);
+  position: fixed;
+  bottom: 10%;
+  margin-left: 100px;
   background-color: white;
   overflow: hidden;
   width: 200px;
@@ -36,31 +36,32 @@
 }
 
 .subMenu{
-
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 
 }
-.active{
+.popup{
   display: list-item;
   height: var(--menuHeight);
 }
 
 .menu > li{
-		font-size: 16px;
-		list-style-position: inside;
-		padding: 10px;
-		margin: 1px auto auto -40px;
-		background-color: rgba(0,165,8,0.75);
-		color: white;
-		line-height: 20px;
-		border: solid 1px yellow;
+	font-size: 16px;
+	list-style-position: inside;
+	padding: 10px;
+	margin: 1px auto auto -40px;
+	background-color: rgba(0,165,8,0.75);
+	color: white;
+	line-height: 20px;
+	border: solid 1px yellow;
 	}
 .menu a{
 	text-decoration: none;
 	color: white;
 }
 
-li:hover{
-		background-color: #3FC2BC;
-		font-size: 18px;
-	}
+.menu li:hover{
+	background-color: #3FC2BC;
+}
 
