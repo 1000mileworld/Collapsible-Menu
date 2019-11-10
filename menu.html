@@ -2,11 +2,12 @@
 <html>
 <head>
 	<title>Menu</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="menuStyle.css">
+	<script src="createMenu.js"></script>
 </head>
 <body>
 
-<button class="expandible" type="button">Content<br>Map<br>>>></button>
+
 
 <ol class="menu">
 <li><a href="#dom">Understanding the Document Object Model (DOM)</a></li>
@@ -39,52 +40,7 @@
 
 
 <script type="text/javascript">
-	
-const ex = document.querySelector('.expandible');
-const menu = document.querySelector('.menu');
-
-const listNode = document.querySelectorAll('.menu > li');
-
-listNode.forEach(function(item) {
-	//console.log('if start')
-	if(item.lastElementChild.className==='subMenu'){
-		//console.log(item)	
-		let expandIcon = document.createTextNode('\u00A0\u00A0\u00A0 \u21D3'); //unicode for spaces and a down arrow
-		item.firstElementChild.append(expandIcon);
-	};	
-	//console.log('if end')
-});
-
-
-const listArray = [...listNode];
-let sum = 0;
-listArray.forEach(item => sum += item.scrollHeight);
-
-const extraSpace = parseFloat(getComputedStyle(ex).getPropertyValue('height'));
-//parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*listArray.length;
-
-document.documentElement.style.setProperty('--menuHeight',sum+extraSpace+'px');
-
-function controlMenu(){
-  menu.classList.toggle("popup");
-}
-
-ex.addEventListener("click", controlMenu);
-
-
-
-const subMenu = document.getElementsByClassName("subMenu");
-
-for (let i = 0; i < subMenu.length; i++) {
-  	subMenu[i].parentElement.addEventListener("click", function() {
-		if (subMenu[i].style.maxHeight){
-		  subMenu[i].style.maxHeight = null;
-		} else {
-		  subMenu[i].style.maxHeight = subMenu[i].scrollHeight + "px";
-		}   
-  });
-}
-
+	createMenu();
 </script>
 
 </body>
