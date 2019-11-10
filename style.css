@@ -30,6 +30,7 @@
   margin-left: 100px;
   background-color: white;
   overflow: hidden;
+  overflow-y: scroll;
   width: 200px;
   height: 0px;
   transition: height 1s;
@@ -57,7 +58,7 @@
 }
 
 .menu li:hover{
-	background-color: #3FC2BC;
+	background-color: #174CE7;
 }
 
 .subMenu{
@@ -73,5 +74,5 @@
 }
 
 .subMenu > li:hover{
-	background-color: #174CE7;
+	background-color: #3FC2BC;
 }

@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<button class="expandible" type="button">Content<br>Map<br>>></button>
+<button class="expandible" type="button">Content<br>Map<br>>>></button>
 
 <ol class="menu">
 <li><a href="#dom">Understanding the Document Object Model (DOM)</a></li>
@@ -24,7 +24,14 @@
 		<li><a href="#">sub item 2</a></li>
 	</ul>
 </li>
-<li><a href="#styling">Element Styling</a></li>
+<li>
+	<a href="#styling">Element Styling</a>
+	<ul class="subMenu">
+		<li><a href="#">sub item 1</a></li>
+		<li><a href="#">sub item 2</a></li>
+	</ul>
+</li>
+
 <li><a href="#node">DOM Node Modification</a></li>
 <li><a href="#summary">Summary</a></li>
 </ol>
@@ -35,14 +42,26 @@
 	
 const ex = document.querySelector('.expandible');
 const menu = document.querySelector('.menu');
-const listClass = document.querySelector('.menu > li');
 
-const listArray = [...document.querySelectorAll('.menu > li')];
+const listNode = document.querySelectorAll('.menu > li');
+
+listNode.forEach(function(item) {
+	//console.log('if start')
+	if(item.lastElementChild.className==='subMenu'){
+		//console.log(item)	
+		let expandIcon = document.createTextNode('\u00A0\u00A0\u00A0 \u21D3'); //unicode for spaces and a down arrow
+		item.firstElementChild.append(expandIcon);
+	};	
+	//console.log('if end')
+});
+
+
+const listArray = [...listNode];
 let sum = 0;
 listArray.forEach(item => sum += item.scrollHeight);
 
-const extraSpace = parseFloat(getComputedStyle(ex).getPropertyValue('height')) +
-parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*listArray.length;
+const extraSpace = parseFloat(getComputedStyle(ex).getPropertyValue('height'));
+//parseFloat(getComputedStyle(listClass).getPropertyValue('margin'))*listArray.length;
 
 document.documentElement.style.setProperty('--menuHeight',sum+extraSpace+'px');
 
