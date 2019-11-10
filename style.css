@@ -1,19 +1,17 @@
 :root{
-  --bottomAlign: 5%;
+  --bottomAlign: 20%;
   --menuHeight: 333px;
 }
 
 .expandible{
   position: fixed;
   bottom: var(--bottomAlign); 
-  
+  z-index: 1;
 }
 
-.item{
+.menu{
   position: absolute;
-  left: 40px;
   bottom: var(--bottomAlign);
-  padding: 0 18px;
   background-color: white;
   overflow: hidden;
   width: 200px;
@@ -21,24 +19,31 @@
   transition: height 1s;
 }
 
+.subMenu{
+
+
+}
 .active{
   display: list-item;
   height: var(--menuHeight);
 }
 
-li{
+.menu > li{
 		font-size: 16px;
-		border: solid 1px;
 		list-style-position: inside;
 		padding: 10px;
-		margin: 1px auto auto -50px;
+		margin: 1px auto auto -40px;
 		background-color: rgba(0,165,8,0.75);
 		color: white;
 		line-height: 20px;
 		border: solid 1px yellow;
 	}
-	
+.menu a{
+	text-decoration: none;
+}
+
 li:hover{
 		background-color: #3FC2BC;
 		font-size: 18px;
 	}
+
