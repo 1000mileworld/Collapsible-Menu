@@ -1,6 +1,8 @@
 function createMenu(){
 
-if(screen.width>700){
+let viewPort = 700;
+
+if(screen.width>viewPort){
 
 let button = document.createElement('button');
 document.body.prepend(button);
@@ -12,13 +14,12 @@ const menu = document.querySelector('.menu');
 const listNode = document.querySelectorAll('.menu > li');
 
 //add icon to indicate which menu items are expandible
-listNode.forEach(function(item) {
-	if(item.lastElementChild.className==='subMenu'){
+listNode.forEach(function(node) {
+	if(node.lastElementChild.className==='subMenu'){
 		let expandIcon = document.createTextNode('\u00A0\u00A0\u00A0 \u21D3'); //unicode for spaces and a down arrow
-		item.firstElementChild.append(expandIcon);
+		node.firstElementChild.after(expandIcon);
 	};	
 });
-
 
 //determine appropriate menu height
 const listArray = [...listNode];
@@ -49,6 +50,34 @@ for (let i = 0; i < subMenu.length; i++) {
 		}   
   });
 }
+
+//check window size
+let addIcon = false; //flag for when to re-add text nodes
+
+function displayProper(){
+	if(document.documentElement.clientWidth<viewPort){
+		document.querySelector('.expandible').style.setProperty('display','none'); //remove button
+		listNode.forEach(function(node) {
+			if(node.lastElementChild.className==='subMenu' && node.firstElementChild.nextSibling.nodeName=='#text'){
+				node.firstElementChild.nextSibling.remove(); //remove down arrow
+				addIcon = true;
+			}
+		});
+	}else{
+		document.querySelector('.expandible').style.setProperty('display','inline-block');
+		if(addIcon){
+			listNode.forEach(function(node) {
+				if(node.lastElementChild.className==='subMenu'){
+					let expandIcon = document.createTextNode('\u00A0\u00A0\u00A0 \u21D3'); //unicode for spaces and a down arrow
+					node.firstElementChild.after(expandIcon);
+				};	
+			});
+			addIcon = false;
+		}
+	}
+}
+displayProper();
+window.addEventListener('resize', displayProper);
 
 } //end if(screen.width>700)
 

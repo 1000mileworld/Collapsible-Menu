@@ -1,3 +1,5 @@
+@media only screen and (min-width: 700px) {
+
 :root{
   --menuHeight: 333px;
 }
@@ -5,12 +7,13 @@
 .expandible{
   position: fixed;
   bottom: 20%;
-  padding: 0.46em 1.6em;
-  border: 0.1em solid #000000;
-  margin: 0 0.2em 0.2em 0;
-  border-radius: 0.12em;
+  padding: 5px;
+  border: 1px solid #000000;
+  margin: 1px;
+  border-radius: 5px;
   box-sizing: border-box;
   font-family: 'Roboto',sans-serif;
+  font-size: 16px;
   font-weight: 500;
   color: #000000;
   background: linear-gradient(45deg, hsl(0, 0%, 100%), hsl(0, 0%, 80%));
@@ -27,7 +30,7 @@
 .menu{
   position: fixed;
   bottom: 10%;
-  margin-left: 100px;
+  left: 80px;
   background-color: white;
   overflow: hidden;
   overflow-y: scroll;
@@ -76,3 +79,5 @@
 .subMenu > li:hover{
 	background-color: #3FC2BC;
 }
+
+} /*@media*/
