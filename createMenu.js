@@ -1,9 +1,10 @@
 function createMenu(){
 
+if(screen.width>700){
+
 let button = document.createElement('button');
 document.body.prepend(button);
-button.outerHTML = '<button class="expandible" type="button">Content<br>Map<br>>>></button>'
-
+button.outerHTML = '<button class="expandible" type="button">Content<br>Map<br>>>></button>';
 
 const ex = document.querySelector('.expandible');
 const menu = document.querySelector('.menu');
@@ -49,4 +50,6 @@ for (let i = 0; i < subMenu.length; i++) {
   });
 }
 
-}
+} //end if(screen.width>700)
+
+} //end function
